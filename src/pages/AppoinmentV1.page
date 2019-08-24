@@ -1,0 +1,134 @@
+<apex:page standardController="YourVisit__c" docType="html-5.0" extensions="YourVisitExtension">
+    
+    <style>
+        .widthhalf{width:49.5%;display:inline-block;vertical-align:top;}
+    </style>
+    
+    <apex:form >
+        
+        <apex:pageBlock title="Tell Us About Your Visit" >     
+            <div class="widthhalf">
+                <apex:pageBlock title="Reason For Visit" >     
+                    <div>
+                        <apex:inputField value="{!appt.Symptom1__c}" label="Symptom">
+                            <apex:actionSupport event="onchange" reRender="physicianinfo, physicianlinks, moreinfo"/>   
+                        </apex:inputField>    
+                    </div>
+                    <br />
+                </apex:pageBlock> 
+            </div>
+            <div class="widthhalf">
+                <apex:pageBlock title="Other Concerns">           
+                    <apex:inputTextarea value="{!appt.OtherConcerns__c}" label="Other Concerns" rows="3" cols="20" style="alignment:bottom">
+                    </apex:inputTextarea>
+                </apex:pageBlock>  
+            </div>
+        </apex:pageBlock>      
+        
+        <apex:pageBlock title="Schedule Your Visit">
+            <div class="widthhalf">
+                <apex:pageBlock title="Physician" >           
+                    <apex:inputField value="{!appt.Physician__c}" label="Physician" style="alignment:bottom">
+                        <apex:actionSupport event="onchange" reRender="physicianinfo, physicianlinks"/>   
+                    </apex:inputField>
+                </apex:pageBlock>  
+            </div>
+            <div class="widthhalf">
+                
+                <div class="widthhalf">
+                    
+                    <apex:pageBlock title="Appointment Date">
+                        <apex:inputField value="{!appt.Appointment_Date__c}" label="Appointment Date"/>
+                    </apex:pageBlock>
+                </div>
+                <div class="widthhalf">     
+                    <apex:pageBlock title="Appointment Time">
+                        <apex:inputField value="{!appt.Appointment_Time__c}" label="Appointment Time"/>
+                    </apex:pageBlock>
+                </div>
+            </div>
+            <center>
+                <apex:commandButton action="{!createAppointment}" value="Create Appointment"/>
+            </center>
+            
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+        </apex:pageBlock>      
+        
+        <apex:pageBlock title="Physician Information">
+            <div class="widthhalf" id="physicianinfo">
+                <apex:pageBlock title="Physician Bio" >
+                </apex:pageBlock>
+            </div>
+            <div class="widthhalf" id="physicianlinks">
+                <apex:pageBlock title="Physician Links">
+                </apex:pageBlock>
+            </div>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="General Information">
+            
+            <div class="widthhalf">
+                
+                
+                <div class="widthhalf">   
+                    <apex:pageBlock title="Your Symptoms" >     
+                        <div>
+                            <apex:inputField value="{!appt.Symptom1__c}" label="Symptom 1">
+                                <apex:actionSupport event="onchange" reRender="generallinks"/>   
+                            </apex:inputField>    
+                        </div>
+                        <br />
+                        <div>
+                            <apex:inputField value="{!appt.Symptom2__c}" label="Symptom 2">
+                                <apex:actionSupport event="onchange" reRender=" generallinks"/>   
+                            </apex:inputField>    
+                        </div>
+                    </apex:pageBlock>     
+                </div>
+                
+                <div class="widthhalf">
+                    <apex:pageBlock title="General Conditions" >
+                        
+                        <div>
+                            <apex:inputField value="{!appt.Condition1__c}" label="Condition">
+                                <apex:actionSupport event="onchange" reRender="generallinks"/>   
+                            </apex:inputField>  
+                        </div>
+                        <br />
+                        <div>
+                            <apex:inputField value="{!appt.Condition2__c}" label="Condition">
+                                <apex:actionSupport event="onchange" reRender="generallinks"/>   
+                            </apex:inputField>  
+                        </div>
+                    </apex:pageBlock>
+                </div>
+            </div>
+            
+            <div class="widthhalf">
+                <apex:pageBlock title="More Information At Mayo And Google" >
+                    <apex:outputPanel id="generallinks">
+                        <div>
+                            <a href="https://www.mayoclinic.org/search/search-results?q={!appt.Condition1__c}" target="_blank">Mayo: {!appt.Condition1__c}</a>
+                        </div>
+                        <br />
+                        <div>
+                            <a href="https://www.mayoclinic.org/search/search-results?q={!appt.Condition2__c}" target="_blank">Mayo: {!appt.Condition2__c}</a>
+                        </div>
+                        <br />
+                        <div>
+                            <a href="https://www.google.com/search?q={!appt.Condition1__c}" target="_blank">Google: {!YourVisit__c.Condition1__c}</a>
+                        </div>
+                        <br />
+                        <div>
+                            <a href="https://www.google.com/search?q={!appt.Condition2__c}" target="_blank">Google: {!appt.Condition2__c}</a>
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlock>
+            </div>
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>

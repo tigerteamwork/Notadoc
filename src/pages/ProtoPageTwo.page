@@ -1,0 +1,60 @@
+<apex:page standardController="YourVisit__c" extensions="ProtoPageTwoControllerExtension">
+    
+    <style>
+        .widthhalf{width:49.5%;display:inline-block;vertical-align:top;}
+    </style>
+    
+    <apex:pageBlock >
+        <apex:image url="{!$Resource.NOTA}" width="100" height="100" /> 
+    </apex:pageBlock>
+    
+    <apex:form >
+        
+        <apex:pageBlock title="Your Appointment">
+            <h1>
+                <div stype="Align:center">
+                    
+                    
+                    <div>
+                        <apex:outputText value="Physician:  {!apptMade.Physician__c}" label="Physician" title="Physician">
+                        </apex:outputText>  
+                    </div>
+                    <br />
+                    <div>
+                        <apex:outputText value="Date:  {0, date, medium}" label="Date" title="Date">
+                            <apex:param value="{!apptMade.Appointment_Date__c}"></apex:param>
+                        </apex:outputText>    
+                    </div>
+                    <br />
+                    <div>
+                        <apex:outputText value="Time:  {!apptMade.Appointment_Time__c}" label="Time" title="Time">
+                        </apex:outputText>    
+                    </div>
+                    <hr/>
+                    <div>
+                        <apex:commandButton action="{!openPageThree}" value="Make Your Own Diagnosis At Infermedica.com"/>
+                    </div>
+                </div>
+                
+            </h1>
+        </apex:pageBlock>      
+        
+        <apex:pageBlock >
+            <apex:image url="{!$Resource.NOTA}" width="100" height="100" /> 
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Physician Information">
+            <div class="widthhalf" id="physicianinfo">
+                <apex:pageBlock title="Physician Bio" >
+                </apex:pageBlock>
+            </div>
+            <div class="widthhalf" id="physicianlinks">
+                <apex:pageBlock title="Physician Links">
+                </apex:pageBlock>
+            </div>
+        </apex:pageBlock>
+        
+        
+        
+    </apex:form>
+</apex:page>

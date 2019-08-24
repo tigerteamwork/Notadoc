@@ -1,0 +1,167 @@
+<apex:page controller="InfermedicaQuery">
+    
+    <style>
+        .widthhalf{width:49.5%;display:inline-block;vertical-align:top;}
+    </style>
+    
+    <apex:pageBlock >
+        <apex:image url="{!$Resource.NOTA}" width="100" height="100" /> 
+    </apex:pageBlock>
+    
+    <apex:form >
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!myListOfConditions}" var="conditions" >
+                <apex:column >
+                    <apex:outputText value="{!conditions}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>      
+        
+        <apex:pageBlock >
+            <apex:image url="{!$Resource.NOTA}" width="100" height="100" /> 
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:commandButton value="Get Possible Conditions From Infermedica" action="{!sendMyRequest}" />
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <div class="widthhalf">
+                <apex:inputCheckbox value="{!s_1558}"/>Abdominal guarding <br />
+                <apex:inputCheckbox value="{!s_299}"/>Abdominal mass <br />
+                <apex:inputCheckbox value="{!s_1293}"/>Abdominal mass, after pregnancy or the removal of molar pregnancy <br />
+                <apex:inputCheckbox value="{!s_13}"/>Abdominal pain <br />
+                <apex:inputCheckbox value="{!s_1802}"/>Abdominal pain, burning or gnawing <br />
+                <apex:inputCheckbox value="{!s_1848}"/>Abdominal pain, colicky <br />
+                <apex:inputCheckbox value="{!s_1860}"/>Abdominal pain, crampy <br />
+                <apex:inputCheckbox value="{!s_1557}"/>Abdominal pain, diffuse <br />
+                <apex:inputCheckbox value="{!s_1387}"/>Abdominal pain, epigastric <br />
+                <apex:inputCheckbox value="{!s_1207}"/>Abdominal pain, exacerbating after caffeine consumption <br />
+                <apex:inputCheckbox value="{!s_15}"/>Abdominal pain, exacerbating during coughing or movement <br />
+                <apex:inputCheckbox value="{!s_1202}"/>Abdominal pain, exacerbating during deep breath <br />
+                <apex:inputCheckbox value="{!s_14}"/>Abdominal pain, exacerbating on an empty stomach <br />
+                <apex:inputCheckbox value="{!s_1844}"/>Abdominal pain, gradual onset <br />
+                <apex:inputCheckbox value="{!s_1852}"/>Abdominal pain, lasting 2 to 7 days <br />
+                <apex:inputCheckbox value="{!s_1853}"/>Abdominal pain, lasting 8 to 14 days <br />
+                <apex:inputCheckbox value="{!s_1840}"/>Abdominal pain, lasting less than two days <br />
+                <apex:inputCheckbox value="{!s_1842}"/>Abdominal pain, lasting more than two weeks <br />
+                <apex:inputCheckbox value="{!s_1729}"/>Abdominal pain, left lower quadrant <br />
+                <apex:inputCheckbox value="{!s_1854}"/>Abdominal pain, left side <br />
+                <apex:inputCheckbox value="{!s_1591}"/>Abdominal pain, left upper quadrant <br />
+                <apex:inputCheckbox value="{!s_1851}"/>Abdominal pain, migratory <br />
+                <apex:inputCheckbox value="{!s_1782}"/>Abdominal pain, mild <br />
+                <apex:inputCheckbox value="{!s_1783}"/>Abdominal pain, moderate <br />
+                <apex:inputCheckbox value="{!s_1598}"/>Abdominal pain, pelvic <br />
+                <apex:inputCheckbox value="{!s_1532}"/>Abdominal pain, periumbilical <br />
+                <apex:inputCheckbox value="{!s_16}"/>Abdominal pain, postprandial <br />
+                <apex:inputCheckbox value="{!s_17}"/>Abdominal pain, premenstrual <br />
+                <apex:inputCheckbox value="{!s_1845}"/>Abdominal pain, radiating to left shoulder or shoulder blade <br />
+                <apex:inputCheckbox value="{!s_1846}"/>Abdominal pain, radiating to lower or middle part of back <br />
+                <apex:inputCheckbox value="{!s_471}"/>Abdominal pain, radiating to right shoulder or shoulder blade <br />
+                <apex:inputCheckbox value="{!s_1847}"/>Abdominal pain, recurrent <br />
+                <apex:inputCheckbox value="{!s_57}"/>Abdominal pain, reduced by defecation or relieving flatulence <br />
+                <apex:inputCheckbox value="{!s_1531}"/>Abdominal pain, right lower quadrant <br />
+                <apex:inputCheckbox value="{!s_1855}"/>Abdominal pain, right side <br />
+                <apex:inputCheckbox value="{!s_1528}"/>Abdominal pain, right upper quadrant <br />
+                <apex:inputCheckbox value="{!s_1195}"/>Abdominal pain, severe <br />
+                <apex:inputCheckbox value="{!s_1369}"/>Abdominal pain, sharp and stabbing <br />
+                <apex:inputCheckbox value="{!s_1843}"/>Abdominal pain, sudden onset <br />
+                <apex:inputCheckbox value="{!s_1929}"/>Abdominal pain, unbearable <br />
+                <apex:inputCheckbox value="{!s_1514}"/>Abdominal tenderness <br />
+                <apex:inputCheckbox value="{!s_1589}"/>Abdominal tenderness, left upper quadrant <br />
+                <apex:inputCheckbox value="{!s_1392}"/>Abdominal tenderness, right upper quadrant <br />
+                <apex:inputCheckbox value="{!s_1400}"/>Abdominal tenderness, suprapubic <br />
+                <hr/>
+                <apex:inputCheckbox value="{!s_1190}"/>Back pain (s_1190) <br />
+                <apex:inputCheckbox value="{!s_159}"/>Back pain, exacerbated by physical exertion <br />
+                <apex:inputCheckbox value="{!s_1206}"/>Back pain, improves with rest <br />
+                <apex:inputCheckbox value="{!s_1205}"/>Back pain, lasting at least a few hours <br />
+                <apex:inputCheckbox value="{!s_53}"/>Back pain, lumbar <br />
+                <apex:inputCheckbox value="{!s_1339}"/>Back pain, lumbar, exacerbating during the night <br />
+                <apex:inputCheckbox value="{!s_38}"/>Back pain, lumbar, radiates to back of the thigh <br />
+                <apex:inputCheckbox value="{!s_663}"/>Back pain, lumbar, radiating to the groin <br />
+                <apex:inputCheckbox value="{!s_1189}"/>Back pain, recurrent <br />
+                <apex:inputCheckbox value="{!s_1192}"/>Back pain, severe <br />
+                <apex:inputCheckbox value="{!s_1198}"/>Back pain, sudden <br />
+                <apex:inputCheckbox value="{!s_1772}"/>Back pain, thoracic <br />
+            </div>
+            
+            <div class="widthhalf">
+                <apex:inputCheckbox value="{!s_50}"/>Chest pain <br />
+                <apex:inputCheckbox value="{!s_31}"/>Chest pain, continue after rest <br />
+                <apex:inputCheckbox value="{!s_51}"/>Chest pain, diffuse <br />
+                <apex:inputCheckbox value="{!s_35}"/>Chest pain, during exertion <br />
+                <apex:inputCheckbox value="{!s_1763}"/>Chest pain, exacerbated by stress <br />
+                <apex:inputCheckbox value="{!s_42}"/>Chest pain, exacerbating during movement <br />
+                <apex:inputCheckbox value="{!s_30}"/>Chest pain, exacerbating with deep breath or cough <br />
+                <apex:inputCheckbox value="{!s_1204}"/>Chest pain, lasting at least a few hours <br />
+                <apex:inputCheckbox value="{!s_46}"/>Chest pain, lasting longer than 30 minutes <br />
+                <apex:inputCheckbox value="{!s_1925}"/>Chest pain, pressure <br />
+                <apex:inputCheckbox value="{!s_37}"/>Chest pain, radiating between shoulder blades <br />
+                <apex:inputCheckbox value="{!s_1490}"/>Chest pain, radiating to left arm <br />
+                <apex:inputCheckbox value="{!s_1489}"/>Chest pain, radiating to left shoulder <br />
+                <apex:inputCheckbox value="{!s_36}"/>Chest pain, radiating to neck <br />
+                <apex:inputCheckbox value="{!s_1952}"/>Chest pain, recurrent <br />
+                <apex:inputCheckbox value="{!s_1197}"/>Chest pain, severe <br />
+                <apex:inputCheckbox value="{!s_1601}"/>Chest pain, stabbing <br />
+                <apex:inputCheckbox value="{!s_48}"/>Chest pain, subsides during rest <br />
+                <apex:inputCheckbox value="{!s_1509}"/>Chest pain, substernal <br />
+                <apex:inputCheckbox value="{!s_1200}"/>Chest pain, sudden <br />
+                <apex:inputCheckbox value="{!s_45}"/>Chest pain, two to five minutes <br />
+                <apex:inputCheckbox value="{!s_1178}"/>Chest pain, worsens on palpation <br />
+                <apex:inputCheckbox value="{!s_1580}"/>Chest pain, worsens on palpation of costochondral joints <br />
+                <hr/>
+                <apex:inputCheckbox value="{!s_105}"/>Cough, dry <br />
+                <apex:inputCheckbox value="{!s_103}"/>Cough, lasting less than three weeks <br />
+                <apex:inputCheckbox value="{!s_106}"/>Cough, lasting more than eight weeks <br />
+                <apex:inputCheckbox value="{!s_1858}"/>Cough, lasting three to eight weeks <br />
+                <apex:inputCheckbox value="{!s_1924}"/>Cough, paroxysmal <br />
+                <apex:inputCheckbox value="{!s_104}"/>Cough, productive <br />
+                <apex:inputCheckbox value="{!s_662}"/>Cough, productive in the morning <br />
+                <apex:inputCheckbox value="{!s_670}"/>Cough, productive with pink, frothy sputum <br />
+                <apex:inputCheckbox value="{!s_526}"/>Cough, productive with purulent sputum <br />
+                <hr />
+                <apex:inputCheckbox value="{!s_305}"/>Vomiting <br />
+                <apex:inputCheckbox value="{!s_1949}"/>Vomiting, every time after meal <br />
+                <apex:inputCheckbox value="{!s_307}"/>Vomiting, less than one hour after meal <br />
+                <apex:inputCheckbox value="{!s_1365}"/>Vomiting, more often in the morning <br />
+                <apex:inputCheckbox value="{!s_801}"/>Vomiting, projectile <br />
+                <hr />
+                <apex:inputCheckbox value="{!s_8}"/>Diarrhea <br />
+                <apex:inputCheckbox value="{!s_412}"/>Diarrhea, foamy <br />
+                <apex:inputCheckbox value="{!s_1850}"/>Diarrhea, lasting more than 14 days <br />
+                <apex:inputCheckbox value="{!s_1849}"/>Diarrhea, lasting up to 14 days <br />
+                <apex:inputCheckbox value="{!s_1121}"/>Diarrhea, mainly at night <br />
+                <apex:inputCheckbox value="{!s_1979}"/>Diarrhea, more than 6 stools a day <br />
+                <apex:inputCheckbox value="{!s_1376}"/>Diarrhea, rice water <br />
+                <hr/>
+                <apex:inputCheckbox value="{!s_21}"/>Headache (s_21) <br />
+                <apex:inputCheckbox value="{!s_1870}"/>Headache, attack lasting 4 to 72 hours (s_1870) <br />
+                <apex:inputCheckbox value="{!s_1868}"/>Headache, attack lasting five minutes to four hours (s_1868) <br />
+                <apex:inputCheckbox value="{!s_1901}"/>Headache, attack lasting three to seven days (s_1901) <br />
+                <apex:inputCheckbox value="{!s_1907}"/>Headache, attack lasting up to five minutes (s_1907) <br />
+                <apex:inputCheckbox value="{!s_1535}"/>Headache, chronic (s_1535) <br />
+                <apex:inputCheckbox value="{!s_1762}"/>Headache, exacerbated by increased stress (s_1762) <br />
+                <apex:inputCheckbox value="{!s_625}"/>Headache, exacerbating by tilting head forward (s_625) <br />
+                <apex:inputCheckbox value="{!s_799}"/>Headache, exacerbating in the morning (s_799) <br />
+                <apex:inputCheckbox value="{!s_1349}"/>Headache, forehead (s_1349) <br />
+                <apex:inputCheckbox value="{!s_24}"/>Headache, generalized (s_24) <br />
+                <apex:inputCheckbox value="{!s_604}"/>Headache, lancinating (s_604) <br />
+                <apex:inputCheckbox value="{!s_1780}"/>Headache, mild (s_1780) <br />
+                <apex:inputCheckbox value="{!s_1781}"/>Headache, moderate (s_1781) <br />
+                <apex:inputCheckbox value="{!s_970}"/>Headache, occipital (s_970) <br />
+                <apex:inputCheckbox value="{!s_23}"/>Headache, pressing (s_23) <br />
+                <apex:inputCheckbox value="{!s_25}"/>Headache, pulsating (s_25) <br />
+                <apex:inputCheckbox value="{!s_1912}"/>Headache, recent (s_1912) <br />
+                <apex:inputCheckbox value="{!s_605}"/>Headache, series over a period of time (s_605) <br />
+                <apex:inputCheckbox value="{!s_1193}"/>Headache, severe (s_1193) <br />
+                <apex:inputCheckbox value="{!s_1905}"/>Headache, sudden onset (s_1905) <br />
+                <apex:inputCheckbox value="{!s_22}"/>Headache, unilateral (s_22) <br />
+                <apex:inputCheckbox value="{!s_1864}"/>Headache, worst headache in life (s_1864) <br />
+                <hr/>         
+            </div>
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>
