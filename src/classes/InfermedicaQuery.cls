@@ -126,7 +126,8 @@ public class InfermedicaQuery {
     
     
     
-    List<Object> myListOfConditions = new List<Object>();  
+    public List<Object> myListOfConditions = new List<Object>();  
+    
     public List<Object> getMyListOfConditions() {
         if (myListOfConditions == null) {
             myListOfConditions = new List<Object>();
@@ -139,7 +140,7 @@ public class InfermedicaQuery {
     
     
     
-    String symptomsSelected;   
+    public String symptomsSelected;   
     public String getSymptomsSelected() {
         if (symptomsSelected == null) {
             symptomsSelected = '';

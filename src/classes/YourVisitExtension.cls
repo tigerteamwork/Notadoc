@@ -1,12 +1,13 @@
 public with sharing class YourVisitExtension {
     
+    private String DoctorAppointment;
     
+    public YourVisit__c appt{ get; set; }
     
-    public YourVisit__c appt;
-    
-    
+    public YourVisitExtension(){}
     
     public YourVisitExtension (ApexPages.StandardController ctrl) {
+        this.appt = (YourVisit__c)ctrl.getRecord();
     }
     
     
@@ -98,14 +99,23 @@ public with sharing class YourVisitExtension {
         system.debug('Button Pressed createAppointment');
         system.debug('Id is ' + appt.Id);
         appt.Condition1__c ='other';
-        insert appt;  
+        try{
+            insert appt;  
+        }catch(DMLException e){
+            e.getMessage();
+            return Page.ProtoPageOne;
+        }
         system.debug('Id is ' + appt.Id);
         createEvent();
         
         PageReference pageTwoAfterCreate = Page.ProtoPageTwo;
         pageTwoAfterCreate.getParameters().put('paramId', appt.Id);
         pageTwoAfterCreate.setRedirect(true);
+        
         return pageTwoAfterCreate;
+        
+        
+        
     }
     
     
@@ -114,6 +124,12 @@ public with sharing class YourVisitExtension {
         PageReference openPageThree = Page.ProtoPageThree;
         openPageThree.setRedirect(true);
         return openPageThree;
+    }
+    
+    public String getDoctorAppointment() {
+         DoctorAppointment = AppointmentHandler.AppointValue;
+        System.debug('Here is the Appointment: ' + DoctorAppointment);
+         return DoctorAppointment;
     }
     
 }

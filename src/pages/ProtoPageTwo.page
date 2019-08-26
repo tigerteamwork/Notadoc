@@ -5,7 +5,7 @@
     </style>
     
     <apex:pageBlock >
-        <apex:image url="{!$Resource.NOTA}" width="100" height="100" /> 
+        <apex:image url="{!$Resource.NotADoc}" width="100" height="100" /> 
     </apex:pageBlock>
     
     <apex:form >
@@ -40,7 +40,7 @@
         </apex:pageBlock>      
         
         <apex:pageBlock >
-            <apex:image url="{!$Resource.NOTA}" width="100" height="100" /> 
+            <apex:image url="{!$Resource.NotADoc}" width="100" height="100" /> 
         </apex:pageBlock>
         
         <apex:pageBlock title="Physician Information">

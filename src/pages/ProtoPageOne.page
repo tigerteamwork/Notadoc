@@ -7,7 +7,7 @@
     <apex:form >
         
         <apex:pageBlock >
-            <apex:image url="{!$Resource.NOTA}" width="200" height="200" /> 
+            <apex:image url="{!$Resource.NotADoc}" width="200" height="200" /> 
         </apex:pageBlock>  
         
         <apex:pageBlock title="Tell Us About Your Visit" >     
@@ -59,25 +59,85 @@
                     </apex:pageBlock>
                 </div>
             </div>
+            <div>
+                <!--
+                <apex:outputPanel id="out">
+                    <apex:actionstatus id="status" startText="testing...">
+                        <apex:facet name="stop">
+                            <apex:outputPanel >Doctor is :{!DoctorAppointment}
+                            </apex:outputPanel>
+                        </apex:facet>
+                    </apex:actionstatus>
+                </apex:outputPanel>
+			-->
+            <p>
+                Doctor is :{!DoctorAppointment}
+                </p>
+            </div>
             <center>
-                <apex:commandButton action="{!makeApptAndEvent}" value="Create Appointment"/>
+                <apex:commandButton action="{!makeApptAndEvent}" value="Create Appointment" />
             </center>
             
         </apex:pageBlock>
         
         <apex:pageBlock >
-            <apex:image url="{!$Resource.NOTA}" width="200" height="200" /> 
+            <apex:image url="{!$Resource.NotADoc}" width="200" height="200" /> 
         </apex:pageBlock>      
         
         <apex:pageBlock title="Physician Information">
-            <div class="widthhalf" id="physicianinfo">
+            <div id="physicianinfo">
                 <apex:pageBlock title="Physician Bio" >
+                    <apex:pageBlockSection title="Dr Doogie Howser MD">
+               <apex:panelGrid columns="2" id="theGrid1">
+                   <apex:image url="{!$Resource.Howser}" width="250" height="250"/>
+                   <p>
+                      <i> &nbsp;Dr. Killimanjaro has been recognized as one of <br/>
+                           New York City/ Metro Area's Top Doctors from 1990 <br/>
+                           through present. His practice includes primary care <br/>
+                           and preventative medicine to his patients. </i><br/><br/><br/><br/>
+                       &nbsp;<i>Board certifications<br/>
+                           American Board of Internal Medicine</i><br/><br/><br/>
+                       <i>Education and training Medical School - Icahn<br/>
+                           School of Medicine at Mount Sinai, Doctor of Medicine<br/>
+                            The Mount Sinai Hospital, Residency in Internal Medicine</i>
+                   </p>
+               </apex:panelGrid>
+           </apex:pageBlockSection>
+           <apex:pageBlockSection title="Dr Elmer Hartmann MD">
+               <apex:panelGrid columns="2" id="theGrid2">
+                   <apex:image url="{!$Resource.Elmer}" width="250" height="250"/>
+                   <p>
+                       <i> &nbsp;Dr. Killbill  is seemingly the only licensed medical<br/>
+                           practitioner in all of Quahog, as he constantly provides the Griffin <br/>
+                           family and friends with bad news... or so it seems.<br/>
+                              His practice includes primary care <br/>
+                           and preventative medicine to his patients. </i><br/><br/><br/><br/>
+                       &nbsp;<i>Board certifications<br/>
+                           American Board of Internal Medicine</i><br/><br/><br/>
+                       <i>Education and training Medical School - Icahn<br/>
+                           School of Medicine at Mount Sinai, Doctor of Medicine<br/>
+                            The Mount Sinai Hospital, Residency in Internal Medicine</i>
+                   </p>
+               </apex:panelGrid>
+           </apex:pageBlockSection>
+           <apex:pageBlockSection title="Dr Amy Wong MD">
+               <apex:panelGrid columns="2" id="theGrid3">
+                   <apex:image url="{!$Resource.Wong}" width="250" height="250"/>
+                   <p>
+                       <i> &nbsp; Dr. Killjoy specialize in Pediatrician and many of<br/>
+                            common health issues affecting women.</i><br/><br/><br/><br/>
+                       &nbsp;<i>Board certifications<br/>
+                           American Board of Internal Medicine</i><br/><br/><br/>
+                       <i>Education and training Medical School<br/>
+                          Residency, Mount Sinai Medical Center (New York, NY)<br/>
+                           MD from Brown University, 2009</i>
+                   </p>
+               </apex:panelGrid>
+           </apex:pageBlockSection>
+
                 </apex:pageBlock>
             </div>
-            <div class="widthhalf" id="physicianlinks">
-                <apex:pageBlock title="Physician Links">
-                </apex:pageBlock>
-            </div>
+           
         </apex:pageBlock>
         
         <apex:pageBlock title="General Information">
